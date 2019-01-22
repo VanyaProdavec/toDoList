@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f3f4f6;
+    font-size: 14px;
+    line-height: 34px;
+    color: black;
+    font-family: Arial;
+}
+div.blur{
+	display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.1);
+}
+div.sider{
+	position:relative;
+	display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 0;
+    width: 30%;
+    height: 100%;
+    float: right;
+}
+div.siderClose{
+    align-self: flex-end;
+    color: black;
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 30px;
+    margin-top: 25px;
+}
+div.siderAdd{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+    color: #fff;
+    background: black; 
+    text-align: center;
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+.siderTitle{
+	margin-left: 30px;
+	margin-top: 25px;
+	font-size: 18px;
+	color: 7f7f7f;
+	border: 0;
+}
+.siderTask{
+	margin-left: 30px;
+	margin-top: 25px;
+	font-size: 14px;
+	color: 7f7f7f; 
+	border: 0;
+}
+div.container {
+    width: 943px;
+    margin: 30px auto;
+}
+.trash{
+	float: right;
+	width: 20px;
+	height: 20px;
+}
+div.lists {
+	display: flex;
+	flex-wrap: wrap;
+	box-sizing:border-box;
+	
+}
+.list {
+	background-color: #fff;
+	width:441px;
+	height: 255px;
+	padding: 20px;
+	box-sizing:border-box;
+	border-radius: 10px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+}
+.list p{
+	color: grey;
+}
+.addToDo{
+	border:0;
+	color:black;
+}
+.task{
+	border:0;
+	color:grey;
+}
+.titleList{
+	border:0;
+	color:black;
+	font-size: 18px;
+	font-weight: bold;
+}
+.editTask{
+	display: none;
+	width: 20px;
+	height: 20px;
+	margin-left:5px;
+	float:right;
+
+}
+div.buttonAdd{
+	width: 943px;
+    margin: 30px auto;
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+

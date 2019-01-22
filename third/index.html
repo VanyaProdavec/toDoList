@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>To-do</title>
+		<link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+     <div class="blur" id="777777777">
+        <div class='sider'>
+          <div class='siderClose'>
+              <span onclick="siderHide()">&#10006</span>
+          </div>
+            <input type="text"  class='siderTitle' placeholder='Add title'>
+           <input type="text" class='siderTask' placeholder='Add to-do'>
+          <div class='siderAdd' onclick="siderHide(),addFromSider()">
+          <p>Add</p>
+          </div>
+        </div>
+     </div>
+	    <header>
+          <div class="container">
+             <img src="logo.png">    
+          </div>
+		</header>
+		<div class="container">
+			<div class="lists">
+
+			</div>
+
+		  </div>
+		<div class="buttonAdd">
+		  	<img  src="plus.png" onclick="siderView()">
+          </div>
+		  <script type="text/javascript">
+		    const generateId = () => {
+              return Math.floor(Math.random() * 100000);
+            };
+			var toDo = [
+    {
+     	id:generateId(),
+     	title:"GV 2020 OD",
+     	tasks: [
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "Prepare mockups for Invoice flow"
+     	      },
+     	      
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "Add data"
+     	      },
+
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "Demo with V"
+     	      }
+     	]
+     },
+
+     {
+     	id:generateId(),
+     	title:"GV 2020 OD",
+     	tasks: [
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "Addiction When Gambing"
+     	      },
+     	      
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "How plasma TVs"
+     	      },
+
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "How does an LCD screen works"
+     	      },
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "Life advice"
+     	      }
+     	]
+     },
+     {
+     	id:generateId(),
+     	title:"GV 2020 OD",
+     	tasks: [
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "Addiction When Gambing"
+     	      },
+     	      
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "How plasma TVs"
+     	      },
+
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "How does an LCD screen works"
+     	      },
+     	      {
+     	      	id:generateId(),
+     	      	selected: false,
+     	      	title: "Life advice"
+     	      }
+     	]
+     }
+    ]
+
+  // ADD TO-DO LIST
+	toDo.forEach(function(item, i, arr) {
+        var arrayTasks=[];
+		for(var j=0;j<item.tasks.length;j++){
+     arrayTasks.push(`<p onmouseover="showEditTask(${item.tasks[j].id*1100000})" onmouseout="hideEditTask(${item.tasks[j].id*1100000})"> <input type=\"checkbox\"id="${item.tasks[j].id}"><label > <input class='task' value='${item.tasks[j].title}'></label><img src='trash.png' onclick="alert('delete')"" id="${item.tasks[j].id*1100000}" class='editTask'><Br>`);
+     ;
+		}
+		var parser = new DOMParser();
+			var c = parser.parseFromString(`
+				<div class="list" id="${item.id}">
+			     <img class="trash"  src="trash.png" onclick="deleteList(${item.id},${i})">
+				 <form><input type='text' value='${item.title}' class='titleList'></form>
+				 ${arrayTasks.join('')}
+				 <input type='text' value='Add to-do' class='addToDo'> 
+               
+		     </div>`
+		  ,'text/html').body.firstChild;
+            var container = document.querySelector('.lists');
+            container.appendChild(c);
+         });
+ // DELETE TO-DO LIST
+	function deleteList (id , index) {
+		document.getElementById(id).remove();
+        toDo.forEach(function(item){
+            toDo=toDo.filter(item=>item.id!=id);
+        });
+      console.log(toDo);
+        
+	};
+    
+    function siderView(){
+        document.getElementById(777777777).style.display='inline';
+    };
+
+    function siderHide(){
+        document.getElementById(777777777).style.display='none';
+    };
+
+    function showEditTask(id){
+        document.getElementById(id).style.display='inline';    
+    };
+
+    function hideEditTask(id){
+        document.getElementById(id).style.display='none';
+    };
+
+    function addFromSider(){
+        alert(//document.querySelector('.siderTitle').value
+            document.querySelector('.siderTask').value);
+    }
+
+		  </script>
+    </body>
+</html>
